@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Main from "./screens/Main";
+import Results from "./screens/Results";
 import Survey from "./screens/Survey";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/Survey" element={<Survey />}></Route>
+        <Route path="/Results" element={<Results />}></Route>
       </Routes>
     </Router>
   );

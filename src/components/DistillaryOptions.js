@@ -6,7 +6,7 @@ function DistillaryOptions({ distillaryName, onTrue, onFalse }) {
   const handleChange = () => {
     if (toggle === false) {
       setToggle(true);
-      onTrue(distillaryName);
+      onTrue();
     } else {
       setToggle(false);
       onFalse();

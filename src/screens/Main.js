@@ -7,12 +7,14 @@ function Main() {
     navigate("/Survey");
   };
 
+  const handleResults = () => {
+    navigate("/Results");
+  };
+
   return (
     <div>
       <button onClick={() => handleSurvey()}>Tour Survey 🥃</button>
-      <button onClick={() => console.log("survey clicked")}>
-        Survey Results✅
-      </button>
+      <button onClick={() => handleResults()}>Survey Results✅</button>
     </div>
   );
 }
