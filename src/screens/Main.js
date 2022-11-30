@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import Header from "../components/Header";
 
 function Main() {
   const navigate = useNavigate();
@@ -13,8 +14,13 @@ function Main() {
 
   return (
     <div>
-      <button onClick={() => handleSurvey()}>Tour Survey 🥃</button>
-      <button onClick={() => handleResults()}>Survey Results✅</button>
+      <Header />
+      <button className="btn btn-info" onClick={() => handleSurvey()}>
+        Tour Survey 🥃
+      </button>
+      <button class="btn btn-success" onClick={() => handleResults()}>
+        Survey Results✅
+      </button>
     </div>
   );
 }

@@ -8,14 +8,14 @@ function Survey() {
   const { updateDocument } = useFirestore("distilleries");
   const [selectedCount, setSelectedCount] = useState(0);
   const [selectedDistillary, setSelectedDistillary] = useState([]);
+  const [errorLabel, setErrorLabel] = useState("");
 
   const onTrue = (id, vote) => {
-    console.log(vote);
     if (selectedCount < 10) {
       setSelectedDistillary([{ id: id, vote: vote }, ...selectedDistillary]);
       setSelectedCount(selectedCount + 1);
     } else {
-      alert("cannot add anymore");
+      setErrorLabel("You can not vote for 10 locations");
     }
   };
 
@@ -25,7 +25,9 @@ function Survey() {
         updateDocument(option.id, { vote: Number(option.vote) + Number(1) })
       );
     } else {
-      alert("please select 10 choices");
+      setErrorLabel(
+        "Please select 10 choices, you will not be able to come back to the survey"
+      );
     }
   };
 
@@ -37,6 +39,18 @@ function Survey() {
 
   return (
     <div>
+      {errorLabel && (
+        <div className="alert alert-dismissible alert-danger">
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            onClick={() => setErrorLabel("")}
+          ></button>
+          {errorLabel}
+        </div>
+      )}
+      <h3>Please Select 10 distillaries you would like to visit</h3>
       {documents ? (
         documents.map((disillaryName) => (
           <DistillaryOptions
@@ -54,7 +68,9 @@ function Survey() {
       ) : (
         <h2>Loading ...</h2>
       )}
-      <button onClick={() => handleSubmitSurvey()}>Submit</button>
+      <button className="btn btn-danger" onClick={() => handleSubmitSurvey()}>
+        Submit
+      </button>
     </div>
   );
 }
