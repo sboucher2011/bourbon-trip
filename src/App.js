@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Main from "./screens/Main";
-import Results from "./screens/Results";
-import Survey from "./screens/Survey";
+import Results from "./screens/Results/Results";
+import Survey from "./screens/Survey/Survey";
 
 function App() {
   return (

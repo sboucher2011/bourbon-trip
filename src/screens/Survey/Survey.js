@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { useCollection } from "../hooks/useCollection";
-import { useFirestore } from "../hooks/useFirestore";
-import DistillaryOptions from "../components/DistillaryOptions";
+import { useCollection } from "../../hooks/useCollection";
+import { useFirestore } from "../../hooks/useFirestore";
+import DistillaryOptions from "../../components/DistillaryOptions/DistillaryOptions";
+
+import "./survey.css";
 
 function Survey() {
   const { documents } = useCollection("distilleries");
@@ -15,7 +17,7 @@ function Survey() {
       setSelectedDistillary([{ id: id, vote: vote }, ...selectedDistillary]);
       setSelectedCount(selectedCount + 1);
     } else {
-      setErrorLabel("You can not vote for 10 locations");
+      setErrorLabel("You can not vote for more than 10 locations");
     }
   };
 
@@ -25,9 +27,7 @@ function Survey() {
         updateDocument(option.id, { vote: Number(option.vote) + Number(1) })
       );
     } else {
-      setErrorLabel(
-        "Please select 10 choices, you will not be able to come back to the survey"
-      );
+      setErrorLabel("Please select 10 choices!");
     }
   };
 
@@ -38,7 +38,7 @@ function Survey() {
   };
 
   return (
-    <div>
+    <div className="list-items">
       {errorLabel && (
         <div className="alert alert-dismissible alert-danger">
           <button
@@ -50,7 +50,9 @@ function Survey() {
           {errorLabel}
         </div>
       )}
-      <h3>Please Select 10 distillaries you would like to visit</h3>
+      <h3 className="text-danger">
+        Please Select 10 distillaries you would like to visit:
+      </h3>
       {documents ? (
         documents.map((disillaryName) => (
           <DistillaryOptions

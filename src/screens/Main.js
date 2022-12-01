@@ -15,11 +15,19 @@ function Main() {
   return (
     <div>
       <Header />
-      <button className="btn btn-info" onClick={() => handleSurvey()}>
+      <button
+        style={{ marginLeft: "30px" }}
+        className="btn btn-info"
+        onClick={() => handleSurvey()}
+      >
         Tour Survey 🥃
       </button>
-      <button class="btn btn-success" onClick={() => handleResults()}>
-        Survey Results✅
+      <button
+        style={{ marginLeft: "30px" }}
+        class="btn btn-success"
+        onClick={() => handleResults()}
+      >
+        Survey Results ✅
       </button>
     </div>
   );

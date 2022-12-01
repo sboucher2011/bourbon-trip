@@ -1,0 +1,13 @@
+.list-item {
+  margin: 15px;
+}
+
+.label {
+  font-size: 18px;
+  display: flex;
+}
+
+.checkbox {
+  margin-top: 8px;
+  margin-left: 12px;
+}

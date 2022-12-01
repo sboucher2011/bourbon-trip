@@ -1,9 +1,9 @@
 function DistillaryVote({ distillaryName, vote }) {
   return (
-    <div>
-      <h2>{distillaryName}</h2>
-      <h2>{vote}</h2>
-    </div>
+    <tr className="table-light">
+      <td>{distillaryName}</td>
+      <td>{vote}</td>
+    </tr>
   );
 }
 

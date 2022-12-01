@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import "./options.css";
+
 function DistillaryOptions({ distillaryName, onTrue, onFalse }) {
   const [toggle, setToggle] = useState(false);
 
@@ -13,10 +15,10 @@ function DistillaryOptions({ distillaryName, onTrue, onFalse }) {
     }
   };
   return (
-    <div>
-      <label>
+    <div className="list-item">
+      <label className="label">
         {distillaryName}
-        <input type="checkbox" onChange={handleChange} />
+        <input className="checkbox" type="checkbox" onChange={handleChange} />
       </label>
     </div>
   );
