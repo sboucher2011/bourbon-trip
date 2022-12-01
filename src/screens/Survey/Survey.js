@@ -17,7 +17,7 @@ function Survey() {
       setSelectedDistillary([{ id: id, vote: vote }, ...selectedDistillary]);
       setSelectedCount(selectedCount + 1);
     } else {
-      setErrorLabel("You can not vote for more than 10 locations");
+      setErrorLabel("You can not vote for more than 10 locations!");
     }
   };
 
